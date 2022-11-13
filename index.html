@@ -83,7 +83,7 @@
   </div>
 </div>
 <div id="container" style="height: 94%;">
-  <div id="content">
+  <div id="content" class="herName">
     Kim Anh
   </div>
 </div>   
@@ -346,6 +346,9 @@
 			// document.querySelector('audio').play();
 
         })(document.getElementById('pinkboard'));
+		
+		if (document.location.search)
+			$('.herName')[0].textContent  = decodeURI(document.location.search).substring(1,);
 		
 		document.body.addEventListener("click", function () {
 			$('.cover').remove();
