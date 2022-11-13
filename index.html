@@ -73,7 +73,7 @@
     Click!
   </div>
 </div>
-<audio style="display: none;" controls autoplay>
+<audio style="display: none;" controls>
   <source src="bgm2.mp3" type="audio/mpeg">
 </audio>
 
@@ -349,15 +349,17 @@
 		
 		if (document.location.search)
 			$('.herName')[0].textContent  = decodeURI(document.location.search).substring(1,);
-		
-		document.body.addEventListener("click", function () {
+			
+		$('audio')[0].onplay = () => {
 			$('.cover').remove();
 			$('.sub').fadeIn(2000);
 			$(".sub").fadeOut(2000);
 			setTimeout(function() {
 			  $(".sub").remove();
 			}, 4000);
-			// document.querySelector(".sub").style.display = 'inline-flex';
+		}
+
+		document.body.addEventListener("click", function () {
 			document.querySelector('audio').play();
 		});
 
